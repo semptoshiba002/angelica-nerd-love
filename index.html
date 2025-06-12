@@ -57,10 +57,10 @@
   </style>
 </head>
 <body>
-  <h1 class="typewriter">Feliz Dia dos Namorados, Angelica 💖</h1>
+  <h1 class="typewriter">Feliz Dia dos Namorados, Meu amor 💖</h1>
 
   <pre>
-Querida Angelica,
+Meu Amor,
 
 Hoje eu quis te mostrar meu amor de um jeito diferente...
 Em forma de código, porque você é o algoritmo perfeito que roda no meu coração ❤️
@@ -85,3 +85,26 @@ Seu nerd favorito 💻
   <footer>© 2025 por Seu Nerd Romântico</footer>
 </body>
 </html>
+<script>
+    const text = "Feliz Dia dos Namorados, Meu amor 💖";
+    const el = document.getElementById("typewriter");
+    let index = 0;
+    let direction = 1;
+
+    function typeLoop() {
+      el.textContent = text.slice(0, index);
+      if (direction === 1) {
+        if (index < text.length) {
+          index++;
+        } else {
+          direction = -1;
+          setTimeout(typeLoop, 1500); // pausa antes de apagar
+          return;
+        }
+      } else {
+        if (index > 0) {
+          index--;
+        } else {
+          direction = 1;
+        }
+      }
