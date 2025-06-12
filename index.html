@@ -9,8 +9,7 @@
       background-color: #0d0d0d;
       color: #00ffcc;
       font-family: 'Courier New', Courier, monospace;
-      white-space: pre-wrap;
-      padding: 2rem;
+      padding: 1.5rem;
       animation: background 10s infinite alternate;
     }
 
@@ -19,34 +18,18 @@
       100% { background-color: #1a1a1a; }
     }
 
-    .typewriter {
-      border-right: .15em solid #00ffcc;
+    #typewriter {
+      font-size: 5vw;
+      border-right: 2px solid #00ffcc;
       white-space: nowrap;
       overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      width: fit-content;
+      margin-bottom: 2rem;
     }
 
     @keyframes blink-caret {
-      from, to { border-color: transparent }
+      0%, 100% { border-color: transparent }
       50% { border-color: #00ffcc }
-    }
-
-    .heart {
-      color: red;
-      font-size: 1.5rem;
-      animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
     }
 
     footer {
@@ -54,13 +37,19 @@
       font-size: 0.9rem;
       color: #999;
     }
+
+    pre {
+      white-space: pre-wrap;
+      font-size: 1rem;
+    }
   </style>
 </head>
 <body>
-  <h1 class="typewriter">Feliz Dia dos Namorados, Meu amor 💖</h1>
+
+  <h1 id="typewriter"></h1>
 
   <pre>
-Meu Amor,
+Meu amor ❤️,
 
 Hoje eu quis te mostrar meu amor de um jeito diferente...
 Em forma de código, porque você é o algoritmo perfeito que roda no meu coração ❤️
@@ -83,9 +72,8 @@ Seu nerd favorito 💻
   </pre>
 
   <footer>© 2025 por Seu Nerd Romântico</footer>
-</body>
-</html>
-<script>
+
+  <script>
     const text = "Feliz Dia dos Namorados, Meu amor 💖";
     const el = document.getElementById("typewriter");
     let index = 0;
@@ -98,7 +86,7 @@ Seu nerd favorito 💻
           index++;
         } else {
           direction = -1;
-          setTimeout(typeLoop, 1500); // pausa antes de apagar
+          setTimeout(typeLoop, 1200); // pausa antes de apagar
           return;
         }
       } else {
@@ -106,5 +94,14 @@ Seu nerd favorito 💻
           index--;
         } else {
           direction = 1;
+          setTimeout(typeLoop, 500); // pausa antes de recomeçar
+          return;
         }
       }
+      setTimeout(typeLoop, 100); // velocidade da digitação
+    }
+
+    typeLoop();
+  </script>
+</body>
+</html>
